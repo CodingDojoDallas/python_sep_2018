@@ -1,0 +1,30 @@
+pip install Django==1.11.9
+    installs django 1.11.9
+
+pip list
+    lists every pip within our virtualenv
+
+deactivate 
+    closes our virtualenv
+
+pip3 list 
+    because our virtualenv is not open, it doesn't list the installed django pip
+
+source myEnvironments/py3Env/bin/activate 
+    opens our virtualenv
+
+pip install Django==1.11.9 (We know you already ran this one. What information do you see returned in terminal after this command?)
+    outputs that we have already installed the pip in our virtualenv
+
+pip freeze (What's the difference between freeze and list?)
+    shows packages that have requirements like the version of django to install
+
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
+
+pip uninstall Django
+
+pip show Django
+    shows info about the pip django
+
+pip search Flask This one might take a moment to execute.
+    searches for pacakages that can be installed
