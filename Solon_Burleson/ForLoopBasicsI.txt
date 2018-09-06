@@ -1,0 +1,9 @@
+1.  Guess: 3,5,1,2
+    Return:3,5,1,2
+
+2.  Guess: return error because list is not an integer
+    Return: error
+
+3.  Guess: 3,5,1,2
+    Return: 0,1,2,3
+    returned the array index not the value of that index

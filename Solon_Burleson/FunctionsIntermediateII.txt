@@ -1,0 +1,25 @@
+1.  x[1][0] = 15
+    students[0]['last_name'] = "Bryant"
+    sport_directory['soccer'][0] = "Andres"
+    z[0]['y'] = 30
+
+2.
+def iterateDict(str):
+    for i in range(len(str)):
+        print("first_name - " + str[i]['first_name'] + ", last_name - " + str[i]['last_name'])
+iterateDict(students)
+
+3.
+def iterateDict2(x,y):
+    for i in range(len(y)):
+        print(y[i][x])
+iterateDict2('first_name', students)
+
+4. 
+def printDojoInfo(x):
+    for key in x.keys():
+        print(str(len(x[key])) +"  "+ str(key.upper()))
+        for value in x.get(key):
+            print(value)
+
+printDojoInfo(dojo)
