@@ -1,22 +1,25 @@
-# define class User
-class User:
-    # this method to run every time a new object is instantiated
-    def __init__(self, name, email):
-	# instance attributes 
-        self.name = name
-        self.email = email
-        self.logged = True
-    # login method changes the logged status for a single instance (the instance calling the method)
-    def login(self):
-        self.logged = True
-        print(self.name + " is logged in.")
-        return self
-    # logout method changes the logged status for a single instance (the instance calling the method)
-    def logout(self):
-        self.logged = False
-        print(self.name + " is not logged in")
-        return self
-    # print name and email of the calling instance
-    def show(self):
-        print("My name is {self.name}. You can email me at {self.email}.")
-        return self
+class Human:
+    def __init__(self):
+        self.health = 5
+        self.intelligence = 3
+        self.strength = 2
+        self.stealth = 1
+
+class Wizard(Human):
+    def __init__(self):
+        super().__init__() # use super to call the Human __init__() method
+        self.intelligence = 10 # every wizard starts off with 10 intelligence, overwriting the 3 from Human
+    def heal(self):
+        self.health += 10 # all wizards also get a heal() method
+class Ninja(Human):
+    def __init__(self):
+        super().__init__() # use super to call the Human __init__() method
+        self.stealth = 10 # every Ninja starts off with 10 stealth, overwriting the stealth of 1 from Human
+    def steal(self):
+        self.stealth += 5 # all ninjas also get a steal() method
+class Samurai(Human):
+    def __init__(self):
+        super().__init__() # use super to call the Human __init__() method
+        self.strength = 10 # every Samurai starts off with 10 strength, overwriting the 2 from Human
+    def sacrifice(self):
+        self.health -= 5 # all samurais also get a sacrifice() method
