@@ -45,5 +45,3 @@ def lengthAndValue(size,value):
     print(newArr)
     return(newArr)
 lengthAndValue(4,7)
-
-hi
