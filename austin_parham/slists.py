@@ -23,15 +23,27 @@ class SList:
 		print(runner.value)
 
 	def removeNode(self,value):
-		runner = self.head
-		while runner != value and runner.next == None:
-			runner = runner.next
-		remove(runner)
+		runner1 = self.head
+		runner2 = runner1.next
+		if runner1.value == value:
+			self.head = runner2
+
+		else:
+			while runner2.value != value and runner2.next != None:
+				runner1 = runner1.next
+				runner2 = runner2.next
+			if runner2.next == None:
+				runner1.next = None
+			else:
+				runner1.next = runner2.next
+
+
+		
 
 list1 = SList(5)
 list1.addNode(4)
 list1.addNode(6)
 list1.addNode(8)
-list1.removeNode(6)
+list1.removeNode(8)
 
 list1.display_all()
