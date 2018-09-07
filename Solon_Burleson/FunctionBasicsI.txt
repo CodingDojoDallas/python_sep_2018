@@ -1,0 +1,49 @@
+1.  Guess: 5
+    Return: 5
+
+2.  Guess: 10
+    Return: 10
+
+3.  Guess: 5
+    Return: 5
+    Only returns the first value in the function
+
+4.  Guess: 10, 5
+    Return: 5
+    Once 5 is returned it finishes the loop
+
+5.  Guess: 5,5
+    Return: 5,none
+
+6.  Guess: 3,5,8
+    Return: 3,5,error
+    function is never returned a value
+
+7.  Guess: 25
+    Return: 25
+
+8.  Guess: 100, 10
+    Return: 100, 10
+
+9.  Guess: 7,14,21
+    Return: 7,14,21
+
+10.  Guess: 8
+     Return: 8
+
+11.  Guess: 500, 500, 300, 300
+     Return: 500, 500, 300, 500
+     never returned b to a new value
+
+12.  Guess: 500, 500, 300, 300
+     Return: 500, 500, 300, 500
+     b is only 300 when a() is called
+
+13.  Guess: 500, 500, 300, 300
+     Return: 500, 500, 300, 300
+
+14.  Guess: 1,3,2
+     Return: 1,3,2
+
+15.  Guess: 1,3,5,10
+     Return: 1,3,5,10
