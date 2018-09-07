@@ -1,0 +1,18 @@
+﻿Pip install Django==1.11.9
+        Installs the specific version of 1.11.9 to our virtual environment
+
+
+Pip list 
+        List the installed packages
+
+
+Pip3 list 
+        List the installed packages that is outside the virtual environment since we just deactivated our environment 
+
+
+Pip freeze 
+        Pip reads the version of all the installed packages in a local virtual environment and then produces a text file with the package version for each python package specified 
+
+
+Pip search flask
+        show all the difference packages with the keyword “flask”?
