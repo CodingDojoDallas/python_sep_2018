@@ -66,7 +66,30 @@ print(maximum([]))
 maximum([1,2,3,4])
 maximum([-1,-2,-3])
 
-#8
+# #8 original but updated below with feedback
+# def analyze(arr):
+#     myDict = {"sumTotal":"", "average":"", "minimum":"", "maximum":"", "length":""}
+#     sum = 0
+#     for i in range(0,len(arr)):
+#         sum = sum + arr[i]
+#         myDict["sumTotal"] = sum
+#         average = sum/len(arr)
+#         myDict["average"] = average
+#         currentMin = arr[0]
+#         for i in range(0,len(arr)):
+#             if arr[i] < currentMin:
+#                 currentMin = arr[i]
+#         myDict["minimum"] = currentMin
+#         currentMax = arr[0]
+#         for i in range(0,len(arr)):
+#             if arr[i] > currentMax:
+#                 currentMax = arr[i]
+#         myDict["maximum"] = currentMax
+#         myDict["length"] = len(arr)
+#     print(myDict)
+# analyze([1,2,3,4])
+#
+#8 correction
 def analyze(arr):
     myDict = {"sumTotal":"", "average":"", "minimum":"", "maximum":"", "length":""}
     sum = 0
@@ -76,25 +99,36 @@ def analyze(arr):
         average = sum/len(arr)
         myDict["average"] = average
         currentMin = arr[0]
-        for i in range(0,len(arr)):
-            if arr[i] < currentMin:
-                currentMin = arr[i]
-        myDict["minimum"] = currentMin
+        if arr[i] < currentMin:
+            currentMin = arr[i]
+            myDict["minimum"] = currentMin
         currentMax = arr[0]
-        for i in range(0,len(arr)):
-            if arr[i] > currentMax:
-                currentMax = arr[i]
-        myDict["maximum"] = currentMax
-        myDict["length"] = len(arr)
+        if arr[i] > currentMax:
+            currentMax = arr[i]
+            myDict["maximum"] = currentMax
+    myDict["length"] = len(arr)
     print(myDict)
 analyze([1,2,3,4])
+#
+# #9 original but updated below with feedback
+# def reverse(arr):
+#     if len(arr) % 2 == 0:
+#         half = int(len(arr)/2) + 1
+#     else:
+#         half = int(len(arr)/2) + .5
+#     for i in range(0,half):
+#         temp = arr[i]
+#         arr[i] = arr[len(arr)-1-i]
+#         arr[len(arr)-1-i] = temp
+#     print(arr)
+# reverse([1,2,3,4])
 
-#9
+9 correction
 def reverse(arr):
     if len(arr) % 2 == 0:
         half = int(len(arr)/2) + 1
     else:
-        half = int(len(arr)/2) + .5
+        half = int(len(arr)/2) #removed the +.5
     for i in range(0,half):
         temp = arr[i]
         arr[i] = arr[len(arr)-1-i]
