@@ -36,7 +36,7 @@ class Slist:
             self.head = Node(value)
             self.head.next = runner
         prevrunner = runner
-        while runner.next!= None:
+        while prevrunner.next!= None:
             if count == index:
                 prevrunner.next = Node(value)
                 prevrunner.next.next = runner
