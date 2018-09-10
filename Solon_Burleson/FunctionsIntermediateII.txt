@@ -6,7 +6,13 @@
 2.
 def iterateDict(str):
     for i in range(len(str)):
-        print("first_name - " + str[i]['first_name'] + ", last_name - " + str[i]['last_name'])
+        s=""
+        for key, value in str[i].items():
+            if key == "first_name":
+                s += key + " - " + value + ", "
+            else:
+                s += key + " - " + value
+        print(s)            
 iterateDict(students)
 
 3.
