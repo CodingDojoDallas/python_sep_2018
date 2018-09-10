@@ -18,8 +18,8 @@ class Car:
         print("Tax:" +str(self.tax))
 
 car1 = Car(2000, 35, "Full", 15)
-car1 = Car(2000, 5, "Not Full", 105)
-car1 = Car(2000, 15, "Kind of Full", 95)
-car1 = Car(2000, 25, "Full", 25)
-car1 = Car(2000, 45, "Empty", 25)
-car1 = Car(20000000, 35, "Empy", 15)
+car2 = Car(2000, 5, "Not Full", 105)
+car3 = Car(2000, 15, "Kind of Full", 95)
+car4 = Car(2000, 25, "Full", 25)
+car5 = Car(2000, 45, "Empty", 25)
+car6 = Car(20000000, 35, "Empy", 15)
