@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <p class="d-inline font-weight-bold">Name: </p><p class="d-inline"> {{ request.form['name'] }}</p>
+    </div>
+    <div>
+        <p class="d-inline font-weight-bold">Dojo Location: </p><p class="d-inline">{{ request.form['location'] }}</p>
+    </div>
+    <div>
+        <p class="d-inline font-weight-bold">Favorite Language: </p><p class="d-inline">{{ request.form['language'] }}</p>
+    </div>
+    <div>
+        <p class="d-inline font-weight-bold">Comment: </p><p class="d-inline">{{ request.form['comment'] }}</p>
+    </div>
+    <a class="btn btn-primary" href="/">Go Back</a>
+</body>
+</html>
