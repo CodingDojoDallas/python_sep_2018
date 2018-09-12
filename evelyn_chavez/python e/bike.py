@@ -8,17 +8,17 @@ class Bike:
         print('the bike price is '+str(self.price))
         print('maximun speed is '+str(self.max))
         print('total miles are ' +str(self.miles))
-        return self
+        return(self)
 
     def ride(self):
         print('Riding') 
         self.miles += 10
-        return self
+        return(self)
 
     def reverse(self):
-        print('reverse')
+        print('revers')
         self.miles -= 5
-        return self
+        return(self)
 
 bike1 = Bike('$300', '60mph', '100miles')
 bike1.ride().ride().ride().reverse().displayinfo()
