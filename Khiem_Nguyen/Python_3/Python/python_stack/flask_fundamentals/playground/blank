@@ -1,0 +1,8 @@
+<!-- {% for x in range(0,times): %}
+    <div class="col"></div>
+{% endfor %} -->
+
+
+# @app.route("/play/(<x>)")
+# def create():
+#     return render_template("index.html", times=int("x"))
