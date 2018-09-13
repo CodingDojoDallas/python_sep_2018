@@ -1,0 +1,35 @@
+h1 {
+    color: blue;
+}
+h3 {
+    color: green;
+}
+#form {
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 30%;
+}
+#right {
+    display: inline-block;
+    width: 25%;
+    height: 400px;
+    vertical-align: top;
+    background-color: rgb(169, 88, 185);
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#submit {
+    background-color: green;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 35px;
+}
+table {
+    width: 90%;
+}
+th {
+    text-align: left;
+}

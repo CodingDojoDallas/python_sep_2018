@@ -43,21 +43,21 @@
     <h1>checkerboard!</h1>
     <table>
     {% for i in range(0,x): %}
-    <tr>
-        {% for j in range(0,y): %}
-            {% if i % 2 == 0 and j % 2 == 0 %}
-                <td class="box1"></td>
-            {% endif %} 
-            {% if i % 2 == 0 and j % 2 != 0 %}
-                <td class="box2"></td>
-            {% endif %} 
-            {% if i % 2 != 0 and j % 2 == 0 %}
-                <td class="box2"></td>
-            {% endif %} 
-            {% if i % 2 != 0 and j % 2 != 0 %}
-                <td class="box1"></td>
-            {% endif %} 
-        {% endfor %}
+        <tr>
+            {% for j in range(0,y): %}
+                {% if i % 2 == 0 and j % 2 == 0: %}
+                    <td class="box1"></td>
+                {% endif %} 
+                {% if i % 2 == 0 and j % 2 != 0: %}
+                    <td class="box2"></td>
+                {% endif %} 
+                {% if i % 2 != 0 and j % 2 == 0: %}
+                    <td class="box2"></td>
+                {% endif %} 
+                {% if i % 2 != 0 and j % 2 != 0: %}
+                    <td class="box1"></td>
+                {% endif %} 
+            {% endfor %}
         </tr>
     {% endfor %}
     </table>

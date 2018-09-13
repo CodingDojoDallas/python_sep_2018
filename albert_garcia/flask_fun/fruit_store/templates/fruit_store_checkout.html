@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Albert's Fruit Store</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for }}">
+    </head>
+    <body>
+        <h1>Thank you for your order!</h1>
+        <p>
+            We ordered {{order}} items for you and charged your student account on {{time}}.
+        </p>
+        <h3>You've Ordered:</h3>
+        <table>
+            <tr>
+                <th>Fruit Name:</th>
+                <th>Quantity:</th>
+            </tr>
+            <tr>
+                <td>Strawberries:</td>
+                <td>
+                    {{request.form['strawberry_quantity']}}
+                </td>
+            </tr>
+            <tr>
+                <td>Raspberries:</td>
+                <td>
+                    {{request.form['raspberry_quantity']}}
+                </td>
+            </tr>
+            <tr>
+                <td>Apples:</td>
+                <td>
+                    {{request.form['apple_quantity']}}
+                </td>
+            </tr>
+        </table>
+        <h3>Your Information:</h3>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>{{ request.form['name']}}</td>
+            </tr>
+            <tr>
+                <td>Student ID:</td>
+                <td>{{request.form['ids']}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
