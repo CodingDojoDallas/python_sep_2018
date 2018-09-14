@@ -10,7 +10,6 @@ users = (
    {'first_name' : 'KB', 'last_name' : 'Tonel'}
 )
 
-
 @app.route('/')
 def Table():
     return render_template("index.html", user_dict = users)
