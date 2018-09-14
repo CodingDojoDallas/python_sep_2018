@@ -2,8 +2,9 @@ class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
+        self.prev = None
 
-class Slist:
+class Dlist:
     def __init__(self,value):
         node = Node(value)
         self.head = node
@@ -14,6 +15,7 @@ class Slist:
         while runner.next != None:
             runner = runner.next
         runner.next = node
+        node.prev = runner
 
     def removeNode(self, value):
         runner = self.head
@@ -23,7 +25,9 @@ class Slist:
         prevrunner = runner
         while runner.next != None:
             if runner.value == value:
-                prevrunner.next = runner.next
+                runner = runner.next
+                prevrunner.next = runner
+                runner.prev = prevrunner                
             prevrunner = runner
             runner=runner.next
         if runner.value == value and runner.next == None:
@@ -35,11 +39,15 @@ class Slist:
         if index == 0:
             self.head = Node(value)
             self.head.next = runner
+            runner.prev = self.head
         prevrunner = runner
         while runner.next!= None:
             if count == index:
-                prevrunner.next = Node(value)
-                prevrunner.next.next = runner
+                node = Node(value)
+                prevrunner.next = node
+                node.prev = prevrunner
+                node.next = runner
+                runner.prev = node
             count += 1
             prevrunner = runner
             runner = runner.next
@@ -51,7 +59,7 @@ class Slist:
             runner = runner.next
         print(runner.value)
 
-list = Slist(5)
+list = Dlist(5)
 list.addNode(7)
 list.addNode(9)
 list.addNode(1)
