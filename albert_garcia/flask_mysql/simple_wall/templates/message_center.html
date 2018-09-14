@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Dojo Wall</title>
+        <style>
+            /* * {
+                outline: 1px solid black;
+            } */
+            #wrap {
+                width: 100%;
+            }
+            #header {
+                position: relative;
+            }
+            img {
+                height: 25px;
+                width: 25px;
+            }
+            p {
+                margin-left: 20px;
+            }
+            .message {
+                display: inline-block;
+                width: 70%;
+                margin-left: 40px;
+                margin-right: 20px;
+            }
+            h1 {
+                display: inline-block;
+                margin-left: 20px;
+                margin-right: 35%;
+            }
+            ul {
+                list-style: none;
+                text-align: right;
+                position: absolute;
+                top: 20px;
+                right: 0px;
+            }
+            li {
+                display: inline;
+                margin-right: 20px;
+            }
+            #inbound {
+                display: inline-block;
+                width: 45%;
+                margin-right: 50px;
+                margin-left: 20px;
+            }
+            #outbound {
+                display: inline-block;
+                vertical-align: top;
+                width: 45%;
+            }
+            td {
+                padding-right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="header">
+                <h1>The Dojo Wall Message Center</h1>
+                <ul>
+                    <li>Welcome "{{user_name}}"!</li>
+                    <li><a href="/"><input type="hidden" name="log_off" value="1">log off</a></li>
+                </ul>
+            </div>
+            <div id="inbound">
+                <h3>"#" message(s) for you "{{user_name}}"</h3>
+                <p>"{{user2}} said {{time}} ago"</p>
+                <p class="message">
+                    this is fef fd df fdfefadf dfdfa fadfdsf dfdfdfef dfsafdf dfdfdf dfasdfef dfdfsadf 
+                    dfdfeeffdf dfsdafef dfdfafe dfaeegtt fbst 140 characters!
+                </p>
+                <a href="/delete"><img src="static/imgs/filled-trash.png" alt="delete icon"></a>
+                <p>"{{user2}} said {{time}} ago"</p>
+                <p class="message">
+                    this is fef fd df fdfefadf dfdfa fadfdsf dfdfdfef dfsafdf dfdfdf dfasdfef dfdfsadf 
+                    dfdfeeffdf dfsdafef dfdfafe dfaeegtt fbst 140 characters!
+                </p>
+                <a href="/delete"><img src="static/imgs/filled-trash.png" alt="delete icon"></a>
+                <p>"{{user_other}} said {{time}} ago"</p>
+                <p class="message">
+                    this is fef fd df fdfefadf dfdfa fadfdsf dfdfdfef dfsafdf dfdfdf dfasdfef dfdfsadf 
+                    dfdfeeffdf dfsdafef dfdfafe dfaeegtt fbst 140 characters!
+                </p>
+                <a href="/delete"><img src="static/imgs/filled-trash.png" alt="delete icon"></a>
+            </div>
+            <div id="outbound">
+                <h3>Send a message</h3>
+                <h5>You have sent a total of "{{user_message_count}}"</h5>
+                <form action="/send" method="POST">
+                    <table>
+                        <tr>
+                            <td>{{user_other}}</td>
+                            <td><textarea name="" id="" cols="60" rows="3"></textarea></td>
+                            <td><button type="submit">Send</button></td>
+                        </tr>
+                        <tr>
+                            <td>{{user_other}}</td>
+                            <td><textarea name="" id="" cols="60" rows="3"></textarea></td>
+                            <td><button type="submit">Send</button></td>
+                        </tr>
+                        <tr>
+                            <td>{{user_other}}</td>
+                            <td><textarea name="" id="" cols="60" rows="3"></textarea></td>
+                            <td><button type="submit">Send</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

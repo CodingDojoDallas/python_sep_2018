@@ -1,0 +1,6 @@
+Something went wrong (1064, "You have an error in your SQL syntax; check the manual that 
+corresponds to your MySQL server version for the right syntax to use near 'JOIN friendships 
+ON users.id = friendships.friend_1_id' at line 1")
+
+--- I had didnt remove the ";" from the inital querry so it tired to join the new table to nothing. since i didn't
+have a table selected to start with. 
