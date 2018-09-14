@@ -1,0 +1,24 @@
+<html>
+    <head>
+      <title>Playground 1</title>
+      <style type="text/css">
+        body{
+          text-align: center
+        }
+        .block{
+          display: inline-block;
+          width: 200px;
+          height: 200px;
+          margin: 10px;
+          border: 1px solid black;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Welcome!</h1>
+      {% for y in range(0,times): %} <!-- Not sure how to add color to css or the html -->
+      <div class="block" style="background-color:{{colors}}"></div>
+      {% endfor %}
+  
+    </body>
+</html>

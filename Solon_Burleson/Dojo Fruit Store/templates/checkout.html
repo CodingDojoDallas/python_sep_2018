@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container d-inline-block col-5 offset-2">
+        <h1>Thank you for your order!</h1>
+        <p>We ordered {{ tot }} items for you and charged your student account on {{ date }}.</p>
+        <h3>You've ordered</h3>
+        <table class="col-10 table-bordered">
+            <thead>
+                <th>Fruit Name</th>
+                <th>Quantity</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Strawberry</td>
+                    <td>{{ request.form['strawberry'] }}</td>
+                </tr>
+                <tr>
+                    <td>Raspberry</td>
+                    <td>{{ request.form['raspberry'] }}</td>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>{{ request.form['apple'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Your Information</h3>
+        <table class="col-8">
+            <tr>
+                <td>Name:</td>
+                <td>{{ request.form['name'] }}</td>
+            </tr>
+            <tr>
+                <td>Student ID:</td>
+                <td>{{ request.form['id'] }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

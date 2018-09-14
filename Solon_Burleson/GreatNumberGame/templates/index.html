@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .box{
+            width: 500px;
+            margin: 10px auto;
+            align-content: center;
+            padding: 175px;
+        }
+    </style>
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="text-center">
+        <h1>Welcome to the Great Number Game!</h1>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess!</p>
+        {% if session['result'] == "equal" %}
+        <div class="box bg-success text-white">
+            <h2>{{ session['guess'] }} was the number</h2>
+            <a class="btn btn-primary" href="/clear">Play again!</a>
+        </div>
+        {% elif session['result'] == "high" %}
+        <div class="box bg-danger text-white">
+            <h2>Too high!</h3>
+        </div>
+        <form action='/check' method='post'>
+            <input type="text" name="guess">
+            <input  class="btn btn-success" type="submit" value="submit">
+        </form>
+        {% elif session['result'] == "low" %}
+        <div class="box bg-danger text-white">
+            <h2>Too low!</h3>
+        </div>
+        <form action='/check' method='post'>
+            <input type="text" name="guess">
+            <input  class="btn btn-success" type="submit" value="submit">
+        </form>
+        {% endif %}
+        {% if 'guess' not in session %}
+        <form action='/check' method='post'>
+            <input type="text" name="guess">
+            <input  class="btn btn-success" type="submit" value="submit">
+        </form>
+        {% endif %}
+    </div>    
+</body>
+</html>
