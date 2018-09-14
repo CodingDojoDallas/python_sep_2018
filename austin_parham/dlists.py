@@ -41,6 +41,17 @@ class SList:
 			runner.previous.next, runner.next.previous = runner.next, runner.previous
 		return self
 
+	def insertNode(self,value,prev):
+		node = Node(value)
+		runner = self.head
+		while runner.value != prev:
+			runner = runner.next
+		node.previous = runner
+		node.next = runner.next
+		runner.next.previous = node
+		runner.next = node
+
+
 
 
 
@@ -50,4 +61,5 @@ list1.addNode(4)
 list1.addNode(6)
 list1.addNode(8)
 list1.removeNode(4)
+list1.insertNode(1,6)
 list1.display_all()

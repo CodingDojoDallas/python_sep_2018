@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Great Number Game</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body style='text-align: center'>
+<h1>Welcome to the Great Number Game!</h1>
+<h3>I am thinking of a number between 1 and 100</h3>
+<h3>Take a guess!</h3>
+<form action='/result'method='post'>
+	<input type="number" name='guess'>
+	<input type="submit" value="Submit">
+	
+</form>
+{% if 'guess' in session %}
+	{% if session['guess'] > session['answer'] %}
+	<div class='container bg-danger' style='width: 200px; height:200px; padding-top: 50px;'>
+	<p>Too High</p>
+	</div>
+	{% endif %}
+
+	{% if session['guess'] < session['answer'] %}
+	<div class='container bg-danger' style='width: 200px; height:200px; padding-top: 50px;'>
+	<p>Too Low</p>
+	</div>
+	{% endif %}
+
+	{% if session['guess'] == session['answer'] %}
+	<div class='container bg-success' style='width: 200px; height:200px; padding-top: 50px;'>
+	<p>Correct!</p>
+	<form action='/reset'>
+		<input type="submit" value="Play Again!">
+	</form>
+	</div>
+	{% endif %}
+{% endif %}
+</body>
+</html>
