@@ -1,0 +1,8 @@
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+fundamentals\flask_mysql\mysqlconnection.py", line 14, in __init__
+    self.connection = conection
+NameError: name 'conection' is not defined
+
+File "C:\Users\austi\Desktop\python_stack\myEnvironments\py3Env\lib\site-packages\pymysql\connections.py", line 284, in __init__
+    self.encoding = charset_by_name(self.charset).encoding
+AttributeError: 'NoneType' object has no attribute 'encoding'

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello World</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+
+var options = {
+	title: {
+		text: "Customers and Their Lead Numbers"
+	},
+	subtitles: [{
+		text: "2010 - 2018"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{name}</b>: {y}",
+		showInLegend: "true",
+		legendText: "{name}",
+		indexLabelFontSize: 16,
+		indexLabel: "{name} - {y}",
+		dataPoints: 
+		[
+			{% for customer in customers %}
+				{ y: {{ customer['leads']}}, name: '{{customer['name']}}' },
+			{% endfor %}
+		]
+	}]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+}
+</script>
+
+</head>
+<body>
+<div class= 'container' style="text-align: center">
+<h2>List all customers and # of leads</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>Customer Name</th>
+		<th>Number of Leads</th>
+	</tr>
+	<tr>
+		<td>
+			{% for customer in customers: %}
+			<p>{{ customer['name'] }}</p>
+			{% endfor %}
+		</td>
+		<td>
+			{% for customer in customers: %}
+			<p>{{ customer['leads'] }}</p>
+			{% endfor %}
+		</td>
+	</tr>
+</table>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<h4>List Leads from a certain time period:</h4>
+<form action ='/update' method='post'>
+	<label for='from_date'>From:</label>
+	<input type="date" name="from_date" id="from_date">
+	<label for= 'to_date'>To:</label>
+	<input type="date" name="to_date" id="to_date"><br />
+	<input type="submit" name="Submit">
+	
+</form>
+</div>
+</body>
+</html>
