@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Counter</title>
+        <style>
+        h1 {
+            padding-top: 20px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        #buttons {
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+
+    <h1>Counter</h1>
+    {% if count == 1 %}
+        <h2> 1 time </h2>
+    {% endif %}
+    {% if count != 1 %}
+        <h2> {{count}} times </h2>
+    {% endif %}
+    <div id="buttons">
+        <a role="button" class="btn btn-primary" href="/plustwo">Add Two Visits!</a>
+        <a role="button" class="btn btn-danger" href="/reset">Reset</a>
+    </div>
+    </body>
+</html>
