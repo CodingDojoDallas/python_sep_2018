@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkerboard</title>
+    <style>
+        .color1{
+            height: 50px;
+            width: 50px;
+            background-color: red;
+            display: inline-block;
+            margin: -4px;
+        }
+        .color2{
+            height: 50px;
+            width: 50px;
+            background-color: black;
+            display: inline-block;
+            margin: -4px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% for i in range(0,column): %}
+        {% if i % 2 == 0 %}
+        <div class="row">
+            {% for i in range(0,row): %}
+            {% if i % 2 == 0 %}
+            <div class="color1"></div>
+            {% endif %}
+            {% if i % 2 != 0 %}
+            <div class="color2"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if i % 2 != 0 %}
+        <div class="row">
+            {% for i in range(0,row): %}
+            {% if i % 2 == 0 %}
+            <div class="color2"></div>
+            {% endif %}
+            {% if i % 2 !=0 %}
+            <div class="color1"></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>
