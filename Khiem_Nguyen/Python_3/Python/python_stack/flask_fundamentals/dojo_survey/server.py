@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 @app.route("/")
@@ -14,9 +14,9 @@ def createUserResult():
     return render_template("result.html", name = name, location = location, language = language, comment = comment)
 
 @app.route("/danger")
-def redirect():
+def danger():
     print("a user tried to vist /danger")
-    return redirect("/")
+    return redirect(url_for("/"))
 
 
 
