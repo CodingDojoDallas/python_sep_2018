@@ -9,7 +9,6 @@ bcrypt = Bcrypt(app)
 
 EMAIL_REGEX = re.compile(r'[a-zA-Z0-9.+_-]+@[a-zA-Z._-]+\.[a-zA-Z]+$')
 NAME_REGEX = re.compile(r'[a-zA-Z- ]+$')
-now = datetime.datetime.now()
 
 @app.route('/')
 def Form():
@@ -93,7 +92,6 @@ def Login():
             'email': email
         }
     return_user = mysql.query_db(query, data)
-    print(return_user)
     if len(return_user) < 1:
         session['status'] = "invalid"
         flash(u'Check email address and password.', 'login')
@@ -118,6 +116,13 @@ def UsersQuery():
             'id': session['id']
         }
     return_messages = mysql.query_db(query, data)
+    for x in return_messages:
+        print(x['created_at'])
+        created = x['created_at']
+        msg_date = created.strftime("%j")
+        print(msg_date)
+        x['created_at'] = msg_date
+    print(return_messages)
     mysql = connectToMySQL("simplewall")
     query = "SELECT count(sender_id) FROM messages WHERE sender_id = %(id)s;"
     data = {
@@ -130,7 +135,11 @@ def UsersQuery():
             'id': session['id']
         }
     return_received = mysql.query_db(query, data)
-    return render_template("wall.html", users = other_users, messages = return_messages, outbound = return_sent, received = return_received)
+ 
+    now = datetime.datetime.now()
+    day = now.strftime("%j")
+    print(day)
+    return render_template("wall.html", users = other_users, messages = return_messages, outbound = return_sent, received = return_received, d = day)
 
 @app.route('/send', methods=['POST'])
 def Post():

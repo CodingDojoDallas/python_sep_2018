@@ -79,7 +79,16 @@
                 
                 <h3>{{ received[0]['count(recipient_id)'] }} message(s) for you, {{ session['fname'] }}</h3>
                 {% for x in messages %}
-                <p>{{ x['first_name'] }} said  ago</p>
+                {% set elapsed = (d|int) - (x['created_at']|int) %}
+                {% if elapsed > 0 %}
+                <p>{{ x['first_name'] }} said {{ elapsed }} days ago.</p>
+                {% endif %}
+                {% if elapsed == 1 %}
+                <p>{{ x['first_name'] }} said {{ elapsed }} day ago.</p>
+                {% endif %}
+                {% if elapsed < 1 %}
+                <p>{{ x['first_name'] }} said less than a day ago.</p>
+                {% endif %}
                 <p class="message">{{ x['message'] }}</p>
                 <form action="/delete" method='POST'>
                     <input type="hidden" name= "delete" value="{{ x['id'] }}">
