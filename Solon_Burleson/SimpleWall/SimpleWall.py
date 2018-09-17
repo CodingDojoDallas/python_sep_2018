@@ -29,6 +29,12 @@ def Register():
     confirm_pw = request.form['confirm_pw']
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     session['status'] = "valid"
+    mysql = connectToMySQL("simplewall")
+    query = "SELECT email FROM users WHERE email = %(email)s;"
+    data = {
+            'email': email
+        }
+    email_check = mysql.query_db(query, data)
     if len(fname) < 2:
         session['status'] = "invalid"
         flash(u'First name must be atleast 2 characters and only consist of letters.', 'fname')
@@ -45,7 +51,10 @@ def Register():
         flash(u'Name can only contain letters, spaces, or hyphens.', 'lname_chars')
     else:
         session['lname'] = lname
-    if not EMAIL_REGEX.match(email):
+    if len(email_check) > 0:
+        session['status'] = "invalid"
+        flash(u'Email address already registered', 'email_reg')
+    elif not EMAIL_REGEX.match(email):
         session['status'] = "invalid"
         flash(u'Invalid email address.', 'email')
     else:
@@ -117,6 +126,8 @@ def UsersQuery():
         }
     return_messages = mysql.query_db(query, data)
     for x in return_messages:
+        print(x)
+        print("hello")
         print(x['created_at'])
         created = x['created_at']
         msg_date = created.strftime("%j")

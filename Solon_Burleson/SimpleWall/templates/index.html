@@ -44,7 +44,7 @@
             <p>Email:</p>
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% for category, message in messages %}
-                    {% if category == "email" %}
+                    {% if category == "email" or category == "email_reg" %}
                         <span>{{ message }}</span>
                     {% endif %}
                 {% endfor %}
