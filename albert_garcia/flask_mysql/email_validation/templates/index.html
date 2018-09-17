@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Email Registration</title>
+    </head>
+    <body>
+        <h1>Regiser an Email Address</h1>
+        <form action="/validate" method="POST">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == 'check' or category == 'email' %}
+                            <h4>{{message}}</h4>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <label for="email">Email Address:</address></label>
+            <input type="text" name="email">
+            <button type="submit">Validate</button>
+        </form>
+    </body>
+</html>
