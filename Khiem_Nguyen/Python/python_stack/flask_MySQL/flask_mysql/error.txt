@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "server.py", line 7, in <module> 
+    mysql = connectToMySQL('mydb')
+  File "/Users/khiem/Desktop/python_sep_2018/Khiem_Nguyen/Python/python_stack/flask_fundamentals/flask_mysql/mysqlconnection.py", line 34, in connectToMySQL
+    return MySQLConnection(db)
+  File "/Users/khiem/Desktop/python_sep_2018/Khiem_Nguyen/Python/python_stack/flask_fundamentals/flask_mysql/mysqlconnection.py", line 12, in __init__
+    autocommit = False)
+  File "/Library/Python/2.7/site-packages/pymysql/__init__.py", line 94, in Connect
+    return Connection(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/pymysql/connections.py", line 284, in __init__
+    self.encoding = charset_by_name(self.charset).encoding
+AttributeError: 'NoneType' object has no attribute 'encoding'
+(py3Env) Khiems-MacBook-Pro:flask_mysql khiem$
