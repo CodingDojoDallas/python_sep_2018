@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>Words App</title>
+        <style>
+            body {
+                text-align: center;
+                margin-top: 30px;
+            }
+            #add {
+                width: 45%;
+                border-right: 5px solid black;
+            }
+            #session form {
+                text-align: right;
+            }
+            #add form {
+                text-align: left;
+            }
+            #add form label {
+                font-size: 18px;
+            }
+            form {
+                font-size: 18px;
+            }
+            #session {
+                width: 45%;
+                vertical-align: top;
+            }
+            textarea {
+                display: block;
+                font-size: 18px;
+            }
+            div {
+                display: inline-block;
+            }
+            h1 {
+                margin-top: 0px;
+            }
+            label {
+                text-align: left;
+            }
+            button {
+                color: white;
+                background-color: goldenrod;
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 15px;
+            }
+            .big {
+                font-weight: bold;
+                font-size: 24px;
+            }
+            .biggreen {
+                font-weight: bold;
+                color: green;
+                font-size: 24px;
+            }
+            .bigred {
+                font-weight: bold;
+                color: red;
+                font-size: 24px;
+            }
+            .bigblue {
+                font-weight: bold;
+                color: blue;
+                font-size: 24px;
+            }
+            .smgreen {
+                color: green;
+                font-size: 18px;
+            }
+            .smred {
+                color: red;
+                font-size: 18px;
+            }
+            .smblue {
+                color: blue;
+                font-size: 18px;
+            }
+            .sm {
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="add">
+            <h1>Add a new Word</h1>
+            <form action="/process" method="POST">
+                {% csrf_token %}
+                <textarea name="word" cols="40" rows="1"></textarea>
+                <label for="color">Color:</label>
+                <input type="hidden" name="color" value="black">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="radio" name="color" id="green" value="green">
+                        </td>
+                        <td>
+                            <label for="color">Green</label>               
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="color" id="red" value="red">
+                        </td>
+                        <td>
+                            <label for="color">Red</label>               
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="color" id="blue" value="blue">
+                        </td>
+                        <td>
+                            <label for="color">Blue</label>               
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="hidden" name="big" value="0">
+                            <input type="checkbox" name="big" id="big" value="1">
+                        </td>
+                        <td>
+                            <label for="big">Show in BIG font!</label>               
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">Add to Session</button>
+            </form>
+        </div>
+        <div id="session">
+            <form action="/clear">
+                {% csrf_token %}
+                <button type="submit">Clear Session</button>
+            </form>
+            <table>
+                {% for i in request.session.words %}
+                    {% if i.big == '1' %}
+                        {% if i.color == 'green' %}
+                            <tr>
+                                <td class="biggreen">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                        {% if i.color == 'red' %}
+                            <tr>
+                                <td class="bigred">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                        {% if i.color == 'blue' %}
+                            <tr>
+                                <td class="bigblue">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                        {% if i.color == 'black' %}
+                            <tr>
+                                <td class="big">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endif %}
+                    {% if i.big == '0' %}
+                        {% if i.color == 'green' %}
+                            <tr>
+                                <td class="smgreen">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                        {% if i.color == 'red' %}
+                            <tr>
+                                <td class="smred">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                        {% if i.color == 'blue' %}
+                            <tr>
+                                <td class="smblue">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                        {% if i.color == 'black' %}
+                            <tr>
+                                <td class="sm">{{i.word}}</td>
+                                <td>{{i.added}}</td>
+                                <td>{{i.dt}}</td>
+                            </tr>
+                        {% endif %} 
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
