@@ -67,13 +67,27 @@ def printDojoInfo():
 printDojoInfo()
 
 # alt...
-dojo = {
-   'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
-   'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
-}
-def printDojoInfo(x):
-    for key in x.key:
-        print(str(len(x.keys()[key])), str(x.keys()[key])
-        for i in x[key]:
-            print(i)
-printDojoInfo(dojo)
+# dojo = {
+#    'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+#    'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
+# }
+# def printDojoInfo(x):
+#     for key in x.key:
+#         print(str(len(x.keys()[key])), str(x.keys()[key])
+#         for i in x[key]:
+#             print(i)
+# printDojoInfo(dojo)
+
+
+users = (
+{'first_name' : 'Michael', 'last_name' : 'Choi'},
+{'first_name' : 'John', 'last_name' : 'Supsupin'},
+{'first_name' : 'Mark', 'last_name' : 'Guillen'},
+{'first_name' : 'KB', 'last_name' : 'Tonel'}
+)  
+
+def Table():
+    for i in range(len(users)):
+        for j in users[i].keys():
+            print(users[i][j])
+Table()

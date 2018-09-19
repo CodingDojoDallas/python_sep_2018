@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Ninja Gold Game</title>
+        <style>
+            body h1 {
+                text-align: center;
+            }
+            body h2 {
+                display: inline-block;
+                text-align: left;
+                margin-bottom: 20px;
+                margin-left: 0px;
+            }
+            body {
+                text-align: center;
+            }
+            textarea {
+                font-size: 16px;
+                margin-right: 800px;
+            }
+            .place {
+                display: inline-block;
+                width: 20%;
+                border: 2px solid black;
+                text-align: center;
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+            #activity {
+                overflow: scroll;
+                border: 2px solid black;
+                width: 85%;
+                height: 150px;
+                display: inline-block;
+            }
+            button {
+                color: white;
+                background-color: goldenrod;
+                font-size: 16px;
+                border-radius: 10px;
+                padding: 5px;
+            }
+            .red {
+                color: red;
+            }
+            .green {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Ninja Gold Game!</h1>
+        <h2>Your Gold</h2>
+        <textarea name="yourgold"  cols="20" rows="1">{{request.session.yourgold}}</textarea>
+        <div class="place">
+            <h3>Farm</h3>
+            <h4>earn 10-20 gold</h4>
+            <form action="/process" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="farm" value="{{farm}}">
+                <input type="hidden" name="place" value="farm">
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="place">
+            <h3>Cave</h3>
+            <h4>earn 5-10 gold</h4>
+            <form action="/process" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="Cave" value="{{cave}}">
+                <input type="hidden" name="place" value="cave">
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="place">
+            <h3>House</h3>
+            <h4>earn 2-5 gold</h4>
+            <form action="/process" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="House" value="{{house}}">
+                <input type="hidden" name="place" value="house">
+                <button type="submit">Find Gold!</button>
+            </form>
+        </div>
+        <div class="place">
+            <h3>Casino</h3>
+            <h4>win/lose 0-50 gold</h4>
+            <form action="/process" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="casino" value="{{casino}}">
+                <input type="hidden" name="place" value="casino">
+                {% if request.session.yourgold > 50 %}
+                    <button type="submit">Find Gold!</button>
+                {% endif %}
+            </form>
+        </div>
+        <h3>Activities</h3>
+        <div id="activity">
+            {% for i in request.session.activity %}
+                <p class="{{i.color}}">{{i.text}}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>

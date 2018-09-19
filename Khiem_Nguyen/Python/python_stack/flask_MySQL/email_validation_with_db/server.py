@@ -20,6 +20,7 @@ def create():
            }
     result = mysql.query_db(query, data)
 
+
     if len(result) != 0:
         flash("This email already exists!")
 

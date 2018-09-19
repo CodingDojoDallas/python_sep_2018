@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Registraion Form</title>
+        <style>
+            h4 {
+                color: red;
+            }
+            #correct {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Please Register</h1>
+        <h4>* is required</h4>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'correct' %}
+                        <h4 id="correct">{{message}}</h4>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/register" method="POST">
+            <table>
+                <tr>
+                    <td><h4>*</h4></td>
+                    <td><h3>Email:</h3></td>
+                    <td><input type="text" name="email"></td>
+                    <td>        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'email_len' or category == 'email' %}
+                                        <h4>{{message}}</h4>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>*</h4></td>
+                    <td><h3>First Name:</h3></td>
+                    <td><input type="text" name="fname"></td>
+                    <td>        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'fname_len' or category == 'fname_alpha' %}
+                                        <h4>{{message}}</h4>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>*</h4></td>
+                    <td><h3>Last Name:</h3></td>
+                    <td><input type="text" name="lname"></td>
+                    <td>        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'lname_len' or category == 'lname_alpha' %}
+                                        <h4>{{message}}</h4>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>*</h4></td>
+                    <td><h3>Date of Birth:</h3></td>
+                    <td><input type="date" name="dob"></td>
+                    <td>        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'dob' %}
+                                        <h4>{{message}}</h4>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>*</h4></td>
+                    <td><h3>Password:</h3></td>
+                    <td><input type="password" name="password"></td>
+                    <td>        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'password' %}
+                                        <h4>{{message}}</h4>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>*</h4></td>
+                    <td><h3>Confirm Password:</h3></td>
+                    <td><input type="password" name="confirm_password"></td>
+                    <td>        
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                    {% if category == 'match' %}
+                                        <h4>{{message}}</h4>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+            </table>
+            <button type="submit"><h3>Register</h3></button>
+        </form>
+    </body>
+</html>

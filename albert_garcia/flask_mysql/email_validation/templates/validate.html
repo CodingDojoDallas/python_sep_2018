@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Valid Email Accounts</title>
+</head>
+<body>
+    <h1>Registered Email Addresses:</h1>
+    <table>
+        <thead>
+            <th>Address:</th>
+            <th>Registered At:</th>
+        </thead>
+        {% for i in elist %}
+        <tr>
+                <td>{{ i['address'] }}</td>
+                <td>{{i['created_at']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
