@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>The Dojo Fruit Store</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fruit_store.css') }}">
+    </head>
+    <body>
+        <div id="form">
+        <h1>Dojo Fruit Store!</h1>
+        <h3>What would you like to buy?</h3>
+            <form action="checkout" method="POST">
+                <table>
+                    <tr>
+                        <th>
+                            Fruit Name:
+                        </th>
+                        <th>
+                            Quantity:
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Strawberry
+                        </td>
+                        <td>
+                            <select name="strawberry_quantity" id="strawberry quantity">
+                                {% for i in range(0,11): %}
+                                    <option value="{{i}}">{{i}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Raspberry
+                        </td>
+                        <td>
+                            <select name="raspberry_quantity" id="raspberry quantity">
+                                    {% for i in range(0,11): %}
+                                        <option value="{{i}}">{{i}}</option>
+                                    {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Apple
+                        </td>
+                        <td>
+                            <select name="apple_quantity" id="apple quantity">
+                                    {% for i in range(0,11): %}
+                                        <option value="{{i}}">{{i}}</option>
+                                    {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <h3>Your Information</h3>
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td>
+                            <input type="text" name="name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Your Student ID:</td>
+                        <td>
+                            <input type="text" name="ids">
+                        </td>
+                    </tr>
+                </table>
+                <input id="submit" type="submit" value="Buy me Stuff!">
+            </form>
+        </div>
+        <div id="right">
+            <h2>Welcome to Dojo Fruit Store!</h2>
+            <p>
+                Your dojo decided to buy fruit for all of the students! 
+                Please use this app to tell us what you would like to have!
+                Once we get your order, we'll charge your student account accordingly.
+            </p>
+            <p>
+                Dojo Fruit Store is proudly built using Flask!
+            </p>
+        </div>
+    </body>
+</html>

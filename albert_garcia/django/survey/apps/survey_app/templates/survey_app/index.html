@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Survey</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            textarea {
+                display:inline-block;
+            }
+            table {
+                display: inline-table;
+                text-align: left;
+                width: 31%;
+                outline: 1px solid black;
+            }
+            #textarea {
+                text-align: center;
+            }
+            form {
+                text-align: center;
+            }
+            td {
+                text-align: left;
+                font-size: 20px;
+                outline: 1px solid black;
+            }
+            input, select {
+                font-size: 20px;
+            }
+            button {
+                font-size: 20px;
+                color: white;
+                background-color: goldenrod;
+                border-radius: 15px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            #comment {
+                text-align: center
+            }
+            label {
+                display: block;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Dojo Django Survey</h1>
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Your Name:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Dojo Location:</td>
+                    <td>
+                        <select name="location" id="location">
+                            <option value="Dallas">Dallas</option>
+                            <option value="Tulsa">Tulsa</option>
+                            <option value="Seattle">Seattle</option>
+                            <option value="San Jose">San Jose</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Favorite Language:</td>
+                    <td>
+                        <select name="language" id="language">
+                            <option value="Python">Python</option>
+                            <option value="Javascript">Javascript</option>
+                            <option value="Ruby">Ruby</option>
+                            <option value="C++">C++</option>
+                            <option value="Swift">Swift</option>
+                            <option value="Java">Java</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>                        
+            <div id="textarea">
+                    <label for="comment">Comment (optional):</label>
+                    <textarea name="comment" cols="65" rows="3"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

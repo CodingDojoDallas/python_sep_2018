@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dojo Survey Results</title>
+    <style>
+        button {
+            background-color: green;
+            border-radius: 10px;
+
+        }
+        a {
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+            margin-top: 0px;
+            padding-top: 0px;
+            outline: 1px solid black;
+        }
+        a h4 {
+            margin-top: 0px;
+            padding-top: 5px;
+            margin-bottom: 0px;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+     <h1>Submitted Info</h1>
+     <table>
+         <tr>
+             <td><h4>Name:</h4></td>
+             <td>{{ request.form['name'] }}</td>
+         </tr>
+         <tr>
+            <td><h4>Location:</h4></td>
+            <td>{{ request.form['location'] }}</td>
+        </tr>
+        <tr>
+            <td><h4>Language:</h4></td>
+            <td>{{ request.form['language'] }}</td>
+        </tr>
+        <tr>
+            <td><h4>Comment:</h4></td>
+            <td>{{ request.form['comment'] }}</td>
+        </tr>
+     </table>
+     <form action="/home" method="POST">
+        <button type="submit"><h4>Go Back</h4></button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Survey</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            textarea {
+                display:inline-block;
+            }
+            table {
+                display: inline-table;
+                text-align: left;
+                width: 31%;
+                outline: 1px solid black;
+            }
+            #textarea {
+                text-align: center;
+            }
+            form {
+                text-align: center;
+            }
+            td {
+                text-align: left;
+                font-size: 20px;
+                outline: 1px solid black;
+            }
+            input, select {
+                font-size: 20px;
+            }
+            button {
+                font-size: 20px;
+                color: white;
+                background-color: goldenrod;
+                border-radius: 15px;
+                padding: 10px;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="head">
+            <h1>Thank you for submitting this form!</h1>
+            <h2>You have submitted this form {{request.session.count}} times now.</h2>
+
+        </div>
+        <div id="body">
+            <h2>Submitted Information:</h2>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{request.session.name}}</td>
+                </tr>
+                <tr>
+                    <td>Dojo Location:</td>
+                    <td>{{request.session.location}}</td>
+                </tr>
+                <tr>
+                    <td>Favorite Language:</td>
+                    <td>{{request.session.language}}</td>
+                </tr>
+                <tr>
+                    <td>Comment:</td>
+                    <td>{{request.session.comment}}</td>
+                </tr>
+            </table>                        
+            <form action="/goback">
+                <button type="submit">Go Back</button>
+            </form>
+        </div>
+    </body>
+</html>
