@@ -13,6 +13,9 @@
         h1 {
             text-align: center;
         }
+        #flash {
+            text: red;
+        }
         </style>
         <meta charset="utf-8">
         <title>Registration Form</title>
@@ -22,7 +25,7 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <p>{{message}}</p>
+                    <p id="flash">{{message}}</p>
                 {% endfor %}
             {% endif %}
         {% endwith %}
