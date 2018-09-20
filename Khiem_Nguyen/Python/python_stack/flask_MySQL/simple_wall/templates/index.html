@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Login and Registration</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            * {
+                margin: 10px;
+            }
+            .class {
+
+                display: inline-block;
+                vertical-align: top;
+            }
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Login and Registration</h1>
+        {% with errors = get_flashed_messages(category_filter=["status"]) %}
+        {% if errors %}
+                {% for msg in errors %}
+                    <p class="error"> {{ msg }} </p>
+                {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+            <div class="form">
+                <h2> Register Here! </h2>
+                <form action="/register" method="post">
+                    <div class="form-group row">
+                        <label for="first_name" class="col-sm-2 col-form-label">First Name:</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="first_name" class="form-control" value="{{ session["first_name"] }}">
+                        </div>
+                        {% with errors = get_flashed_messages(category_filter=["first_name"]) %}
+                        {% if errors %}
+                                {% for msg in errors %}
+                                    <p class="error"> {{ msg }} </p>
+                                {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <div class="form-group row">
+                        <label for="last_name" class="col-sm-2 col-form-label">Last Name:</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="last_name" class="form-control" value="{{ session["last_name"] }}">
+                        </div>
+                        {% with errors = get_flashed_messages(category_filter=["last_name"]) %}
+                        {% if errors %}
+                                {% for msg in errors %}
+                                    <p class="error"> {{ msg }} </p>
+                                {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="email" class="form-control" >
+                        </div>
+                        {% with errors = get_flashed_messages(category_filter=["email"]) %}
+                        {% if errors %}
+                                {% for msg in errors %}
+                                    <p class="error"> {{ msg }} </p>
+                                {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                        <div class="col-sm-3">
+                            <input type="password" name="password" class="form-control" >
+                        </div>
+                        {% with errors = get_flashed_messages(category_filter=["password"]) %}
+                        {% if errors %}
+                                {% for msg in errors %}
+                                    <p class="error"> {{ msg }} </p>
+                                {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <div class="form-group row">
+                        <label for="confirm_password" class="col-sm-2 col-form-label">Confirm Password:</label>
+                        <div class="col-sm-3">
+                            <input type="password" name="confirm_password" class="form-control" >
+                        </div>
+                        {% with errors = get_flashed_messages(category_filter=["confirm_password"]) %}
+                        {% if errors %}
+                                {% for msg in errors %}
+                                    <p class="error"> {{ msg }} </p>
+                                {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <button class="btn btn-primary" type="submit" name="register">Register</button>
+                </form>
+            </div>
+            <div class="form">
+                <h2> Login!</h2>
+                {% with errors = get_flashed_messages(category_filter=["login_status"]) %}
+                {% if errors %}
+                        {% for msg in errors %}
+                            <p class="error"> {{ msg }} </p>
+                        {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <form action="/login" method="post">
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="email" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                        <div class="col-sm-3">
+                            <input type="password" name="password" class="form-control" >
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit" name="login">Login</button>
+                </form>
+            </div>
+    </body>
+</html>
