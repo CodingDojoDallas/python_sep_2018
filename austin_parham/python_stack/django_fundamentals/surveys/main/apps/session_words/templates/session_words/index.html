@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session Words</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<div class="container col-6" style="display: inline-block; outline: 1px solid black; min-height: 400px">
+<h1>Add a new word!</h1>
+<form action='/sessions/input', method="post">
+	{% csrf_token %}
+	<input type="text" name="word" id="word"><br />
+	<label for='color'>Choose color:</label><br />
+	<input type="radio" name="color" value="red">Red<br />
+	<input type="radio" name="color" value="blue">Blue<br />
+	<input type="radio" name="color" value="green">Green<br />
+	<label for="big">show in BIG fonts!</label>
+	<input type="hidden" name="big" value="no">
+	<input type="checkbox" name="big" value="yes"><br />
+	<input type="submit" value="Add your word">
+</form>
+</div>
+
+<div class="container col-5" style="display: inline-block; vertical-align: top; outline: 1px solid red">
+	<h1>Generated Words:</h1>
+	{% for i in request.session.words %}
+		{% if i.big == "yes" %}
+			<p style="color:{{ i.color }}; font-weight: bold">{{ i.word }} added on:{{ request.session.time }}</p>
+		{% else %}
+			<p style="color:{{ i.color }};">{{ i.word }} added on: {{ request.session.time }}</p>
+		{% endif %}
+	{% endfor %}
+</div>
+</body>
+</html>

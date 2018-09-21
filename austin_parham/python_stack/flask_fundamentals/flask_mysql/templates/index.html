@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello World</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<h2>These are my friends!</h2>
+<table class="table table-bordered">
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Occupation</th>
+	</tr>
+	<tr>
+		<td>
+			{% for friend in friends: %}
+			<p>{{ friend['first_name'] }}</p>
+			{% endfor %}
+		</td>
+		<td>
+			{% for friend in friends: %}
+			<p>{{ friend['last_name'] }}</p>
+			{% endfor %}
+		</td>
+		<td>
+			{% for friend in friends: %}
+			<p>{{ friend['occupation'] }}</p>
+			{% endfor %}
+		</td>
+	</tr>
+</table>
+<h2>Add a friend:</h2>
+	<form action='/create_friend' method="post" style=">
+		<label for="first_name">First Name:</label>
+		<input type="text" name="first_name" id="first_name"><br />
+		<label for="last_name">Last Name:</label>
+		<input type="text" name="last_name" id="last_name"><br />
+		<label for="occupation">Occupation:</label>
+		<input type="text" name="occupation" id="occupation"><br />
+		<input type="submit" Value="Add">
+	</form>
+</body>
+</html>

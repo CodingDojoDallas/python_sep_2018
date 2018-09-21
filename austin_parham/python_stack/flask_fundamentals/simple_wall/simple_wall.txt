@@ -1,0 +1,3 @@
+SELECT messages.content, users.first_name, users.last_name,messages.user_id, messages.receiver_id, receivers.first_name,receivers.last_name,receivers.id FROM users
+JOIN messages ON users.id = messages.user_id
+JOIN users AS receivers ON messages.receiver_id = receivers.id
