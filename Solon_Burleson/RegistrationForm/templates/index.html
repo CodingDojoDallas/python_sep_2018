@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="offset-1">Registration Form</h1>
+    <form action='/valid' method='POST'>
+        <table class="offset-1">
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email"></td>
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% for category, message in messages %}
+                        {% if category == "noemail" or category == "email_invalid" %}
+                            <td class="text-danger">{{ message }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </tr>
+            <tr>
+                <td>First Name: </td>
+                <td><input type="text" name="first_name"></td>
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% for category, message in messages %}
+                        {% if category == "fname" %}
+                            <td class="text-danger">{{ message }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><input type="text" name="last_name"></td>
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% for category, message in messages %}
+                        {% if category == "lname" %}
+                            <td class="text-danger">{{ message }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password"></td>
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% for category, message in messages %}
+                        {% if category == "password" or category == "pw_num" or category == "pw_cap" %}
+                            <td class="text-danger">{{ message }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </tr>
+            <tr>
+                <td>Confirm Password: </td>
+                <td><input type="password" name="confirm_pass"></td>
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% for category, message in messages %}
+                        {% if category == "confirm_pass" %}
+                            <td class="text-danger">{{ message }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </tr>
+            <tr>
+                <td><input class="btn btn-success offset-1" type="submit"></td>
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% for category, message in messages %}
+                        {% if category == "correct" %}
+                            <td class="text-success">{{ message }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </tr>
+        </table>   
+    </form>
+</body>
+</html>

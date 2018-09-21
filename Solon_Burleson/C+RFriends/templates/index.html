@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create and Read Friends</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .box-shadow{
+            box-shadow: 3px 3px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="offset-1">
+        <h2>These are my friends!</h2>
+        <table class="col-6 table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Occupation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for i in friendsarr %}
+                    <tr>
+                        {% if ['first_name'] and ['last_name'] and ['occupation'] %}
+                            <td scope="row" class="py-2">{{ i["first_name"] }}</td>
+                            <td class="py-2">{{ i['last_name'] }}</td>
+                            <td class="py-2">{{ i['occupation'] }}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+        <h2><u>Add a friend</u></h2>
+        <form action='/data' method='POST'>
+            <table class="ml-5">
+                <tr>
+                    <td class="py-1 text-right">First Name:</td>
+                    <td class="py-1"><input type="text" name="first_name"></td>
+                </tr>
+                <tr>
+                    <td class="py-1 text-right">Last Name:</td>
+                    <td class="py-1"><input type="text" name="last_name"></td>
+                </tr>
+                <tr class="py-1">
+                    <td class="py-1 text-right">Occupation:</td>
+                    <td class="py-1"><input type="text" name="occupation"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="py-2"><input class="btn btn-primary offset-8 box-shadow" type="submit" value="Add"></td>
+                </tr>
+            </table>
+        </form>
+    </div>    
+</body>
+</html>

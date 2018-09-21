@@ -1,0 +1,47 @@
+/* *{
+    outline: 1px solid black;
+} */
+
+h2{
+    padding: 10px;
+    border-bottom: 2px solid black;
+    margin: -8px -8px 0px -8px;
+}
+
+.bg-gray{
+    background-color: gray;
+}
+
+form{
+    text-align: right;
+}
+
+table{
+    width: 40%;
+    border: 2px solid black;
+}
+
+thead{
+    text-align: left;
+}
+
+#body{
+    padding: 10px;
+}
+
+form{
+    margin: 5px;
+}
+
+input[type=submit]{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    border: solid blue;
+}
+
+#chartContainer{
+    height: 200px;
+    width: 40%;
+}
