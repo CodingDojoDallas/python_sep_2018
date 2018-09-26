@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        {% with errors = get_flashed_messages(category_filter=["status"]) %}
+        {% if errors %}
+                {% for msg in errors %}
+                    <p class="error"> {{ msg }} </p>
+                {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% for i in users %}
+            {% if i['email'] == session['email'] %}
+                <h1>Welcome, you've been logged in,  {{ i['first_name'] }}</h1>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
