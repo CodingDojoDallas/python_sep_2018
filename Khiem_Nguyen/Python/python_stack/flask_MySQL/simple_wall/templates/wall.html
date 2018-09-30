@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Wall</title>
+        <style>
+        * {
+            margin: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        {% with errors = get_flashed_messages(category_filter=["status"]) %}
+        {% if errors %}
+                {% for msg in errors %}
+                    <p class="error"> {{ msg }} </p>
+                {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% if "first_name" in session %}
+            <h1> Welcome to the Wall, {{ session["first_name"] }}! </h1>
+        {% endif %}
+
+
+
+        <h3>{{ number_of_messages[0]["COUNT(recipient_id)"] }} Message(s) for you {{ session["first_name"] }}</h3>
+        {% for i in senders_name %}
+            <p> {{ i["first_name"] }} said </p>
+            <p>{{ i["message"] }}</p>
+        {% endfor %}
+
+
+        <h3>Send a message</h3>
+        You have sent a total of Y amount of messages so far.
+
+
+        {% for i in receivers %}
+            <p>{{ i["first_name"] }}</p>
+            <form action="/send/{{ i["id"] }}" method="post">
+                <div class="form-group">
+                    <label for="comment"></label>
+                    <input type="textarea" name="message" class="form-control" value="" rows="3">
+                </div>
+                <input type="submit" name="submit" value="Send">
+            </form>
+        {% endfor %}
+
+
+
+
+
+
+    </body>
+</html>

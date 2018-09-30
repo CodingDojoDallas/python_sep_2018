@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Email Validation with DB </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+        <style>
+        #flash {
+            color: red;
+        }
+        </style>
+</head>
+    <body>
+
+        <h1> Email validation with DB </h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p id="flash">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="/validation" method="post">
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email Address:</label>
+                <div class="col-sm-2">
+                    <input type="text" name="email" class="form-control">
+                </div>
+            </div>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+
+    </body>
+</html>
